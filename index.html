@@ -211,8 +211,8 @@
                             </div>
 
                             <div class="grid grid-cols-2 gap-3 mt-4">
-                                <div class="bg-indigo-50 p-3 rounded-xl text-center border border-indigo-100"><i class="fa-solid fa-book-medical text-indigo-600 text-lg mb-1"></i><p class="text-[10px] font-bold text-slate-700">CBT Record</p></div>
-                                <div class="bg-teal-50 p-3 rounded-xl text-center border border-teal-100"><i class="fa-solid fa-map-pin text-teal-600 text-lg mb-1"></i><p class="text-[10px] font-bold text-slate-700">Mark Zone</p></div>
+                                <div id="mockCbtBtn" class="bg-indigo-50 p-3 rounded-xl text-center border border-indigo-100 cursor-pointer hover:bg-indigo-100 hover:shadow-md transition-all duration-300"><i class="fa-solid fa-book-medical text-indigo-600 text-lg mb-1"></i><p class="text-[10px] font-bold text-slate-700">CBT Record</p></div>
+                                <div id="mockZoneBtn" class="bg-teal-50 p-3 rounded-xl text-center border border-teal-100 cursor-pointer hover:bg-teal-100 hover:shadow-md transition-all duration-300"><i class="fa-solid fa-map-pin text-teal-600 text-lg mb-1"></i><p class="text-[10px] font-bold text-slate-700">Mark Zone</p></div>
                             </div>
                         </div>
                     </div>
@@ -266,22 +266,95 @@
         </div>
     </footer>
 
-    <!-- Interactive JavaScript Engine for the Mockup -->
+    <div id="customModal" class="fixed inset-0 z-[100] flex items-center justify-center hidden pointer-events-none">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-auto" id="modalBackdrop"></div>
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full mx-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 pointer-events-auto" id="modalContent">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl" id="modalIcon"></div>
+            <h3 class="font-serif text-2xl font-bold text-center text-slate-900 mb-3" id="modalTitle"></h3>
+            <p class="text-slate-600 text-center leading-relaxed mb-8" id="modalMessage"></p>
+            <button id="closeModalBtn" class="w-full py-3 rounded-xl font-bold transition-all duration-300 shadow-md">Understood</button>
+        </div>
+    </div>
+
     <script>
         const input = document.getElementById('mockJournal');
         const preview = document.getElementById('mockRiskPreview');
         const btn = document.getElementById('mockBtn');
+        
+        const mockCbtBtn = document.getElementById('mockCbtBtn');
+        const mockZoneBtn = document.getElementById('mockZoneBtn');
+        
+        // Modal Elements
+        const modal = document.getElementById('customModal');
+        const modalContent = document.getElementById('modalContent');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMessage = document.getElementById('modalMessage');
+        const modalIcon = document.getElementById('modalIcon');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalBackdrop = document.getElementById('modalBackdrop');
 
         // Simulated Keyword Dictionary & Weights
         const highRiskWords = ['craving', 'relapse', 'blow', 'meth', 'overdose', 'score', 'using'];
         const medRiskWords = ['stressed', 'overwhelmed', 'anxious', 'lonely', 'tired', 'angry'];
+
+        // Custom Modal Function to replace ugly browser alerts
+        function showModal(title, message, type) {
+            modalTitle.innerText = title;
+            modalMessage.innerHTML = message; 
+            
+            // Reset styles
+            modalIcon.className = 'w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl ';
+            closeModalBtn.className = 'w-full py-3 rounded-xl font-bold transition-all duration-300 shadow-md ';
+
+            // Theme the modal based on what the user clicked
+            if (type === 'crisis') {
+                modalIcon.classList.add('bg-red-100', 'text-red-600');
+                modalIcon.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+                closeModalBtn.classList.add('bg-red-600', 'text-white', 'hover:bg-red-700', 'shadow-red-600/30');
+            } else if (type === 'success') {
+                modalIcon.classList.add('bg-emerald-100', 'text-emerald-600');
+                modalIcon.innerHTML = '<i class="fa-solid fa-check-double"></i>';
+                closeModalBtn.classList.add('bg-slate-900', 'text-white', 'hover:bg-slate-800');
+            } else if (type === 'cbt') {
+                modalIcon.classList.add('bg-indigo-100', 'text-indigo-600');
+                modalIcon.innerHTML = '<i class="fa-solid fa-book-medical"></i>';
+                closeModalBtn.classList.add('bg-indigo-600', 'text-white', 'hover:bg-indigo-700', 'shadow-indigo-600/30');
+            } else if (type === 'zone') {
+                modalIcon.classList.add('bg-teal-100', 'text-teal-600');
+                modalIcon.innerHTML = '<i class="fa-solid fa-map-pin"></i>';
+                closeModalBtn.classList.add('bg-teal-600', 'text-white', 'hover:bg-teal-700', 'shadow-teal-600/30');
+            } else {
+                modalIcon.classList.add('bg-slate-100', 'text-slate-600');
+                modalIcon.innerHTML = '<i class="fa-solid fa-circle-info"></i>';
+                closeModalBtn.classList.add('bg-slate-900', 'text-white', 'hover:bg-slate-800');
+            }
+
+            modal.classList.remove('hidden');
+            void modal.offsetWidth; // Force browser reflow to trigger animation
+            
+            modalBackdrop.classList.remove('opacity-0');
+            modalBackdrop.classList.add('opacity-100');
+            modalContent.classList.remove('scale-95', 'opacity-0');
+            modalContent.classList.add('scale-100', 'opacity-100');
+        }
+
+        function hideModal() {
+            modalBackdrop.classList.remove('opacity-100');
+            modalBackdrop.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+        }
+
+        closeModalBtn.addEventListener('click', hideModal);
+        modalBackdrop.addEventListener('click', hideModal);
 
         input.addEventListener('input', (e) => {
             const text = e.target.value.toLowerCase();
             let score = 0;
             let risk = 'Low';
 
-            // Very basic tokenizer for the web demo
             const words = text.replace(/[^a-z0-9\s]/g, '').split(/\s+/);
 
             words.forEach(word => {
@@ -294,7 +367,6 @@
 
             preview.innerText = `Risk Preview: ${risk} (Score: ${score})`;
 
-            // Dynamic UI Changes based on Risk
             if (risk === 'High') {
                 preview.className = 'text-sm font-bold text-red-600 mb-3 transition-colors duration-300';
                 btn.className = 'w-full py-3.5 rounded-xl font-bold text-white transition-all duration-300 bg-red-600 hover:bg-red-700 shadow-md shadow-red-600/30';
@@ -310,19 +382,27 @@
             }
         });
 
-        // Mock Button Action
+        // The New Interactive Triggers
         btn.addEventListener('click', () => {
             if (btn.innerText === 'CRISIS INTERRUPT') {
-                alert('🔴 JOLT PROTOCOL ENGAGED: In the live app, this action instantly locks the device hardware and launches an inescapable 3-minute Urge Surfing exercise to disrupt amygdala processing.');
+                showModal('JOLT PROTOCOL ENGAGED', 'In the live app, this action instantly locks the device hardware and launches an inescapable 3-minute Urge Surfing exercise to disrupt amygdala processing.', 'crisis');
                 input.value = '';
                 input.dispatchEvent(new Event('input'));
             } else if (input.value.trim() !== '') {
-                alert('✅ Entry safely logged to the local zero-cloud SQLite database.');
+                showModal('Secure Entry Logged', 'Your journal entry has been safely encrypted into the local zero-cloud SQLite database.', 'success');
                 input.value = '';
                 input.dispatchEvent(new Event('input'));
             } else {
-                alert('Please type a journal entry to see the engine react.');
+                showModal('Input Required', 'Please type a journal entry to see the engine react.', 'info');
             }
+        });
+
+        mockCbtBtn.addEventListener('click', () => {
+            showModal('CBT Thought Record', 'Launching the CBT module allows patients to log emotional intensity, identify cognitive distortions, and draft rational responses to build long-term resilience metrics.', 'cbt');
+        });
+
+        mockZoneBtn.addEventListener('click', () => {
+            showModal('Vanguard Geofencing', 'This feature drops a 100-meter GPS <b>Red Zone</b> pin. If the patient physically crosses this boundary in the future, the app silently alerts their Support Circle via background SMS.', 'zone');
         });
     </script>
 </body>
