@@ -34,6 +34,7 @@
 </head>
 <body class="font-sans text-slate-800 antialiased bg-slate-50">
 
+    <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
@@ -51,7 +52,9 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-900 text-white">
+        <!-- Glowing Background Effects -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-3xl opacity-30 pointer-events-none">
             <div class="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
             <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
@@ -86,6 +89,7 @@
         </div>
     </section>
 
+    <!-- The Problem Section -->
     <section id="problem" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -116,6 +120,7 @@
         </div>
     </section>
 
+    <!-- The Solution / Features Section -->
     <section id="solution" class="py-24 bg-slate-50 border-y border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-16">
@@ -155,6 +160,7 @@
         </div>
     </section>
 
+    <!-- INTERACTIVE DEMO SECTION -->
     <section id="demo" class="py-24 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -177,10 +183,13 @@
                     <p class="text-sm text-slate-500 italic">Note: In the live application, the "Crisis Interrupt" button actively hijacks the OS hardware to deploy inescapable DBT grounding techniques.</p>
                 </div>
 
+                <!-- THE PHONE MOCKUP -->
                 <div class="relative flex justify-center">
                     <div class="w-full max-w-[340px] bg-slate-100 rounded-[3rem] border-[8px] border-slate-800 shadow-2xl overflow-hidden relative">
+                        <!-- Phone Notch -->
                         <div class="absolute top-0 inset-x-0 h-6 bg-slate-800 rounded-b-xl w-32 mx-auto z-20"></div>
                         
+                        <!-- App Header -->
                         <div class="bg-slate-900 pt-10 pb-4 px-6">
                             <h3 class="text-white font-bold text-lg text-center tracking-wide">JIT Cortex-Zero</h3>
                             <div class="flex justify-between items-center mt-4">
@@ -190,6 +199,7 @@
                             </div>
                         </div>
 
+                        <!-- App Body -->
                         <div class="p-5 space-y-5 bg-slate-50 h-[500px]">
                             
                             <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 text-center">
@@ -220,6 +230,7 @@
         </div>
     </section>
 
+    <!-- Pricing & Enterprise Section -->
     <section id="pricing" class="py-24 bg-slate-900 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -244,6 +255,7 @@
                 </div>
             </div>
 
+            <!-- Pricing Card -->
             <div class="max-w-lg mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden transform hover:-translate-y-1 transition duration-300">
                 <div class="p-8 bg-slate-950 text-center relative overflow-hidden border-b border-slate-800">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl -mr-10 -mt-10"></div>
@@ -278,6 +290,7 @@
                         Request a Consultation
                     </a>
                     
+                    <!-- The 10% Pledge Highlight -->
                     <div class="text-center bg-emerald-50 rounded-xl p-4 border border-emerald-100">
                         <div class="flex justify-center mb-2">
                             <i class="fa-solid fa-hand-holding-heart text-emerald-500 text-2xl"></i>
@@ -290,13 +303,31 @@
         </div>
     </section>
 
-    <footer class="bg-slate-950 text-slate-500 py-12 text-center border-t border-slate-900">
+    <!-- Footer with New Contact Info -->
+    <footer class="bg-slate-950 text-slate-500 py-12 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-center gap-2 mb-4">
-                <i class="fa-solid fa-shield-halved text-cyan-500"></i>
-                <span class="font-serif font-bold text-lg text-white">JIT Biobehavioral Inc.</span>
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Branding -->
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-shield-halved text-cyan-500 text-xl"></i>
+                    <span class="font-serif font-bold text-xl text-white">JIT Biobehavioral Inc.</span>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="flex flex-col md:flex-row items-center gap-4 text-sm">
+                    <a href="mailto:contact@jitbiobehavioral.com" class="hover:text-cyan-400 transition flex items-center">
+                        <i class="fa-solid fa-envelope mr-2"></i>contact@jitbiobehavioral.com
+                    </a>
+                    <span class="hidden md:inline text-slate-700">|</span>
+                    <a href="tel:5551234567" class="hover:text-cyan-400 transition flex items-center">
+                        <i class="fa-solid fa-phone mr-2"></i>(555) 123-4567
+                    </a>
+                </div>
             </div>
-            <p class="text-sm">&copy; 2026 JIT Biobehavioral Inc. All rights reserved. Zero-Cloud Architecture.</p>
+            
+            <div class="mt-8 pt-8 border-t border-slate-800/50 text-sm text-center">
+                &copy; 2026 JIT Biobehavioral Inc. All rights reserved. Zero-Cloud Architecture.
+            </div>
         </div>
     </footer>
 
@@ -350,4 +381,94 @@
                 modalIcon.innerHTML = '<i class="fa-solid fa-check-double"></i>';
                 closeModalBtn.classList.add('bg-slate-900', 'text-white', 'hover:bg-slate-800');
             } else if (type === 'cbt') {
-                modalIcon.classList.add
+                modalIcon.classList.add('bg-indigo-100', 'text-indigo-600');
+                modalIcon.innerHTML = '<i class="fa-solid fa-book-medical"></i>';
+                closeModalBtn.classList.add('bg-indigo-600', 'text-white', 'hover:bg-indigo-700', 'shadow-indigo-600/30');
+            } else if (type === 'zone') {
+                modalIcon.classList.add('bg-teal-100', 'text-teal-600');
+                modalIcon.innerHTML = '<i class="fa-solid fa-map-pin"></i>';
+                closeModalBtn.classList.add('bg-teal-600', 'text-white', 'hover:bg-teal-700', 'shadow-teal-600/30');
+            } else {
+                modalIcon.classList.add('bg-slate-100', 'text-slate-600');
+                modalIcon.innerHTML = '<i class="fa-solid fa-circle-info"></i>';
+                closeModalBtn.classList.add('bg-slate-900', 'text-white', 'hover:bg-slate-800');
+            }
+
+            modal.classList.remove('hidden');
+            void modal.offsetWidth; // Force browser reflow to trigger animation
+            
+            modalBackdrop.classList.remove('opacity-0');
+            modalBackdrop.classList.add('opacity-100');
+            modalContent.classList.remove('scale-95', 'opacity-0');
+            modalContent.classList.add('scale-100', 'opacity-100');
+        }
+
+        function hideModal() {
+            modalBackdrop.classList.remove('opacity-100');
+            modalBackdrop.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+        }
+
+        closeModalBtn.addEventListener('click', hideModal);
+        modalBackdrop.addEventListener('click', hideModal);
+
+        input.addEventListener('input', (e) => {
+            const text = e.target.value.toLowerCase();
+            let score = 0;
+            let risk = 'Low';
+
+            const words = text.replace(/[^a-z0-9\s]/g, '').split(/\s+/);
+
+            words.forEach(word => {
+                if (highRiskWords.includes(word)) score += 20;
+                else if (medRiskWords.includes(word)) score += 10;
+            });
+
+            if (score >= 20) risk = 'High';
+            else if (score >= 10) risk = 'Medium';
+
+            preview.innerText = `Risk Preview: ${risk} (Score: ${score})`;
+
+            if (risk === 'High') {
+                preview.className = 'text-sm font-bold text-red-600 mb-3 transition-colors duration-300';
+                btn.className = 'w-full py-3.5 rounded-xl font-bold text-white transition-all duration-300 bg-red-600 hover:bg-red-700 shadow-md shadow-red-600/30';
+                btn.innerText = 'CRISIS INTERRUPT';
+            } else if (risk === 'Medium') {
+                preview.className = 'text-sm font-bold text-orange-500 mb-3 transition-colors duration-300';
+                btn.className = 'w-full py-3.5 rounded-xl font-bold text-white transition-all duration-300 bg-orange-500 hover:bg-orange-600 shadow-md';
+                btn.innerText = 'Log Entry';
+            } else {
+                preview.className = 'text-sm font-bold text-emerald-600 mb-3 transition-colors duration-300';
+                btn.className = 'w-full py-3.5 rounded-xl font-bold text-white transition-all duration-300 bg-slate-900 hover:bg-slate-800 shadow-md';
+                btn.innerText = 'Log Entry';
+            }
+        });
+
+        // The New Interactive Triggers
+        btn.addEventListener('click', () => {
+            if (btn.innerText === 'CRISIS INTERRUPT') {
+                showModal('JOLT PROTOCOL ENGAGED', 'In the live app, this action instantly locks the device hardware and launches an inescapable 3-minute Urge Surfing exercise to disrupt amygdala processing.', 'crisis');
+                input.value = '';
+                input.dispatchEvent(new Event('input'));
+            } else if (input.value.trim() !== '') {
+                showModal('Secure Entry Logged', 'Your journal entry has been safely encrypted into the local zero-cloud SQLite database.', 'success');
+                input.value = '';
+                input.dispatchEvent(new Event('input'));
+            } else {
+                showModal('Input Required', 'Please type a journal entry to see the engine react.', 'info');
+            }
+        });
+
+        mockCbtBtn.addEventListener('click', () => {
+            showModal('CBT Thought Record', 'Launching the CBT module allows patients to log emotional intensity, identify cognitive distortions, and draft rational responses to build long-term resilience metrics.', 'cbt');
+        });
+
+        mockZoneBtn.addEventListener('click', () => {
+            showModal('Vanguard Geofencing', 'This feature drops a 100-meter GPS <b>Red Zone</b> pin. If the patient physically crosses this boundary in the future, the app silently alerts their Support Circle via background SMS.', 'zone');
+        });
+    </script>
+</body>
+</html>
