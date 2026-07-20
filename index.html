@@ -234,6 +234,620 @@
             color: #333;
             display: flex;
             flex-direction: column;
+            position: relative;
+        }
+
+        .app-header {
+            background: var(--primary);
+            color: #fff;
+            padding: 25px 20px 15px 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .app-body {
+            padding: 20px;
+            flex-grow: 1;
+            position: relative;
+            background: #fff;
+        }
+
+        /* Full Screen Hijack Overlay */
+        .hijack-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--danger);
+            color: #fff;
+            z-index: 50;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            animation: flashRed 0.3s ease-in-out;
+        }
+
+        @keyframes flashRed {
+            0% { background: #fff; }
+            100% { background: var(--danger); }
+        }
+
+        .hijack-overlay h2 {
+            margin-top: 0;
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .hijack-overlay p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-reset-hijack {
+            background: #fff;
+            color: var(--danger);
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-reset-hijack:hover {
+            background: #f8f8f8;
+        }
+
+        .demo-view {
+            display: none;
+        }
+
+        .demo-view.active {
+            display: block;
+        }
+
+        .demo-view h4 {
+            margin: 0 0 10px 0;
+            color: var(--primary);
+        }
+        
+        .helper-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        textarea.journal-input {
+            width: 90%;
+            height: 120px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            resize: none;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        textarea.journal-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .demo-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .demo-btn:hover {
+            background: #d8694d;
+        }
+
+        /* Alerts */
+        .alert-box {
+            background: #ffebee;
+            color: var(--danger);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--danger);
+            font-size: 0.9rem;
+            margin-top: 15px;
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Radar for Geofence */
+        .radar-box {
+            height: 150px;
+            background: #e3f2fd;
+            border-radius: 8px;
+            border: 2px solid #bbdefb;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .radar-ping {
+            font-size: 2rem;
+            position: absolute;
+            transition: all 1s ease;
+        }
+
+        /* Bottom Nav */
+        .bottom-nav {
+            display: flex;
+            background: #fff;
+            border-top: 1px solid #ddd;
+        }
+
+        .nav-item {
+            flex: 1;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+            border-top: 3px solid var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: #888;
+            text-align: center;
+            padding: 30px 5%;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">JIT Biobehavioral</div>
+        <a href="/pilot" class="btn-nav">Clinic Login</a>
+    </header>
+
+    <section class="hero">
+        <h1>Closing the Outpatient Blind Spot.</h1>
+        <p>Cortex-Zero is a zero-cloud digital shield that autonomously intercepts behavioral crises and generates objective telemetry for Intensive Outpatient Programs.</p>
+    </section>
+
+    <section class="mission">
+        <div class="mission-box">
+            <h2>Our Mission & Core Beliefs</h2>
+            <p class="mission-text">"To engineer clinical-grade digital shields that protect outpatients in the blind spots of recovery, driven by lived experience and a relentless commitment to data sovereignty."</p>
+            
+            <div class="core-beliefs">
+                <div>
+                    <h3>1. Lived Experience Drives Engineering</h3>
+                    <p>We do not build from textbooks. Cortex-Zero was engineered by understanding the exact mechanics of relapse and the coded manipulation that traditional apps miss.</p>
+                </div>
+                <div>
+                    <h3>2. Absolute Data Sovereignty</h3>
+                    <p>Privacy is a clinical requirement. Our Zero-Cloud architecture ensures behavioral telemetry never leaves the physical device, protecting both the patient and the clinic from third-party data liabilities.</p>
+                </div>
+                <div>
+                    <h3>3. Objective Telemetry</h3>
+                    <p>Subjective memory fails during a crisis. We believe clinicians deserve autonomous, real-time data to intercept high-risk behavior before a relapse occurs.</p>
+                </div>
+            </div>
+
+            <div class="pledge-box">
+                <h3>Our Commitment: The 10% Profit Pledge</h3>
+                <p>We are stakeholders in patient success. JIT Biobehavioral is legally structured with an Irrevocable Profit Allocation Mandate in our corporate bylaws. We pledge a minimum of 10% of our net annual profit directly back into the addiction recovery ecosystem as grants, software subsidies, and direct funding to publicly funded Intensive Outpatient Programs (IOPs).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-header">
+            <h2>Enterprise-Grade Architecture</h2>
+            <p>Designed strictly for clinical deployment. We track behavior, not just vocabulary.</p>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>The Threat Cache</h3>
+                <p>Cortex-Zero autonomously normalizes and tags incoming texts from high-risk burner phones, silencing them before they hijack patient attention. It operates entirely in the background.</p>
+            </div>
+            <div class="card">
+                <h3>Zero-Tolerance Guardian</h3>
+                <p>If a patient attempts to reply to a flagged threat, the Guardian service instantly locks the screen and forces a clinical intervention. We neutralize coded manipulation the exact millisecond it happens.</p>
+            </div>
+            <div class="card">
+                <h3>Vanguard Telemetry</h3>
+                <p>Stop relying on subjective memory. Generate objective GPS heatmaps and behavioral risk logs for clinical review. All telemetry is processed directly on the device.</p>
+            </div>
+            <div class="card">
+                <h3>Zero-Cloud Privacy</h3>
+                <p>Patient health data and behavioral logs never leave the physical phone. By eliminating cloud servers entirely, we remove third-party data liability for your clinic.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive App Demo Section -->
+    <section class="demo">
+        <h2>See The Shield in Action</h2>
+        <p>Interact with the live simulation below to see how Cortex-Zero autonomously intercepts high-risk behavior in real-time.</p>
+        
+        <div class="phone-mockup">
+            <div class="phone-screen">
+                
+                <!-- The Hijack Overlay -->
+                <div id="hijack-screen" class="hijack-overlay">
+                    <h2>⚠️ SHIELD ACTIVATED</h2>
+                    <p><strong>High-Risk Lexicon Detected</strong></p>
+                    <p style="font-size: 0.9rem;">Device input locked. Clinical intervention protocol initiated. Telemetry logged.</p>
+                    <button class="btn-reset-hijack" onclick="resetHijack()">Acknowledge & Reset</button>
+                </div>
+
+                <div class="app-header">Cortex-Zero</div>
+                
+                <div class="app-body">
+                    
+                    <!-- Journal Tab -->
+                    <div id="tab-journal" class="demo-view active">
+                        <h4>Lexicon Scanner</h4>
+                        <p class="helper-text">Type a journal entry below. Try using a trigger word like <strong>"craving"</strong>, <strong>"drink"</strong>, or <strong>"bar"</strong> to see the Guardian intervene.</p>
+                        <textarea id="journalInput" class="journal-input" placeholder="How are you feeling today?" onkeyup="checkJournal()"></textarea>
+                    </div>
+
+                    <!-- Geofence Tab -->
+                    <div id="tab-geo" class="demo-view">
+                        <h4>Vanguard Geofencing</h4>
+                        <p class="helper-text">Background GPS continuously monitors against clinically restricted zones.</p>
+                        
+                        <div class="radar-box">
+                            <div id="user-dot" class="radar-ping" style="left: 20px; top: 50px;">📍</div>
+                            <div style="position: absolute; right: 20px; top: 40px; width: 60px; height: 60px; background: rgba(198,40,40,0.2); border: 2px dashed var(--danger); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--danger); font-weight: bold;">BAR</div>
+                        </div>
+
+                        <button class="demo-btn" onclick="triggerGeofence()">Simulate Entering Zone</button>
+                        
+                        <div id="geoAlert" class="alert-box">
+                            📍 <strong>Geofence Breached!</strong><br>Patient entered known risk zone. Heatmap logged to Zero-Cloud endpoint.
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- App Navigation -->
+                <div class="bottom-nav">
+                    <div id="nav-journal" class="nav-item active" onclick="switchTab('journal')">Journal</div>
+                    <div id="nav-geo" class="nav-item" onclick="switchTab('geo')">Geofence</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 JIT Biobehavioral Inc. All rights reserved.</p>
+        <p>Secure B2B Clinical Software | Zero-Cloud Architecture</p>
+    </footer>
+
+    <!-- Interactive Logic -->
+    <script>
+        // Tab Switching Logic
+        function switchTab(tab) {
+            document.querySelectorAll('.demo-view').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            
+            if(tab === 'journal') {
+                document.getElementById('tab-journal').classList.add('active');
+                document.getElementById('nav-journal').classList.add('active');
+            } else {
+                document.getElementById('tab-geo').classList.add('active');
+                document.getElementById('nav-geo').classList.add('active');
+            }
+        }
+
+        // Journal Hijack Logic
+        function checkJournal() {
+            const input = document.getElementById('journalInput').value.toLowerCase();
+            const triggers = ['craving', 'drink', 'bar', 'score', 'using', 'relapse', 'dealer'];
+            
+            const isTriggered = triggers.some(word => input.includes(word));
+
+            if (isTriggered) {
+                // Trigger the full screen hijack
+                document.getElementById('hijack-screen').style.display = 'flex';
+                document.getElementById('journalInput').blur(); // Force close the keyboard
+            }
+        }
+
+        // Reset the Hijack
+        function resetHijack() {
+            document.getElementById('hijack-screen').style.display = 'none';
+            document.getElementById('journalInput').value = '';
+        }
+
+        // Geofence Trigger Logic
+        function triggerGeofence() {
+            const dot = document.getElementById('user-dot');
+            const alertBox = document.getElementById('geoAlert');
+            
+            // Move dot into the red zone
+            dot.style.left = '220px';
+            dot.style.top = '45px';
+            
+            setTimeout(() => {
+                alertBox.style.display = 'block';
+            }, 800);
+
+            // Reset after 5 seconds
+            setTimeout(() => {
+                dot.style.left = '20px';
+                dot.style.top = '50px';
+                alertBox.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JIT Biobehavioral | Autonomous Clinical Shields</title>
+    <style>
+        :root {
+            --primary: #1a5f7a;
+            --primary-dark: #114052;
+            --accent: #e27d60;
+            --bg-light: #f4f7f6;
+            --text-dark: #333;
+            --text-muted: #666;
+            --success: #2e7d32;
+            --danger: #c62828;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background: #fff;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .btn-nav {
+            background: var(--primary);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-nav:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            opacity: 0.9;
+        }
+
+        /* Mission Statement */
+        .mission {
+            background: var(--bg-light);
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .mission-box {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent);
+        }
+
+        .mission-box h2 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-top: 0;
+        }
+
+        .mission-text {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .core-beliefs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .core-beliefs h3 {
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        .core-beliefs p {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .pledge-box {
+            background: var(--primary);
+            color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .pledge-box h3 {
+            margin-top: 0;
+            color: #fff;
+            font-size: 1.4rem;
+        }
+
+        .pledge-box p {
+            margin-bottom: 0;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .features-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #eaeaea;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-top: 0;
+        }
+        
+        /* Interactive App Demo Section */
+        .demo {
+            background: var(--primary-dark);
+            padding: 80px 5%;
+            text-align: center;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .demo h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .demo p {
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+            opacity: 0.9;
+        }
+
+        .phone-mockup {
+            width: 320px;
+            height: 650px;
+            background: #000;
+            border-radius: 35px;
+            padding: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        .phone-screen {
+            background: #f4f7f6;
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+            overflow: hidden;
+            text-align: left;
+            color: #333;
+            display: flex;
+            flex-direction: column;
         }
 
         .app-header {
