@@ -77,7 +77,7 @@
             opacity: 0.9;
         }
 
-        /* Mission Statement */
+        /* Mission Statement - Expanded */
         .mission {
             background: var(--bg-light);
             padding: 80px 5%;
@@ -85,7 +85,7 @@
         }
 
         .mission-box {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             background: #fff;
             padding: 50px;
@@ -96,15 +96,55 @@
 
         .mission-box h2 {
             color: var(--primary);
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-top: 0;
         }
 
         .mission-text {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 500;
             color: var(--text-dark);
             font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .core-beliefs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .core-beliefs h3 {
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        .core-beliefs p {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .pledge-box {
+            background: var(--primary);
+            color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .pledge-box h3 {
+            margin-top: 0;
+            color: #fff;
+            font-size: 1.4rem;
+        }
+
+        .pledge-box p {
+            margin-bottom: 0;
+            font-size: 1rem;
+            opacity: 0.9;
         }
 
         /* Features Grid */
@@ -149,26 +189,6 @@
             margin-top: 0;
         }
 
-        /* The Pledge */
-        .pledge {
-            background: var(--primary);
-            color: #fff;
-            padding: 80px 5%;
-            text-align: center;
-        }
-
-        .pledge h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .pledge p {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
         /* Footer */
         footer {
             background: #111;
@@ -181,6 +201,7 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .mission-box { padding: 30px; }
+            .mission-box h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -198,8 +219,28 @@
 
     <section class="mission">
         <div class="mission-box">
-            <h2>Our Mission</h2>
-            <p class="mission-text">"To engineer clinical-grade digital shields that protect outpatients in the blind spots of recovery, driven by lived experience and a relentless commitment to data sovereignty and community reinvestment."</p>
+            <h2>Our Mission & Core Beliefs</h2>
+            <p class="mission-text">"To engineer clinical-grade digital shields that protect outpatients in the blind spots of recovery, driven by lived experience and a relentless commitment to data sovereignty."</p>
+            
+            <div class="core-beliefs">
+                <div>
+                    <h3>1. Lived Experience Drives Engineering</h3>
+                    <p>We do not build from textbooks. Cortex-Zero was engineered by understanding the exact mechanics of relapse and the coded manipulation that traditional apps miss.</p>
+                </div>
+                <div>
+                    <h3>2. Absolute Data Sovereignty</h3>
+                    <p>Privacy is a clinical requirement. Our Zero-Cloud architecture ensures behavioral telemetry never leaves the physical device, protecting both the patient and the clinic from third-party data liabilities.</p>
+                </div>
+                <div>
+                    <h3>3. Objective Telemetry</h3>
+                    <p>Subjective memory fails during a crisis. We believe clinicians deserve autonomous, real-time data to intercept high-risk behavior before a relapse occurs.</p>
+                </div>
+            </div>
+
+            <div class="pledge-box">
+                <h3>Our Commitment: The 10% Profit Pledge</h3>
+                <p>We are stakeholders in patient success. JIT Biobehavioral is legally structured with an Irrevocable Profit Allocation Mandate in our corporate bylaws. We pledge a minimum of 10% of our net annual profit directly back into the addiction recovery ecosystem as grants, software subsidies, and direct funding to publicly funded Intensive Outpatient Programs (IOPs).</p>
+            </div>
         </div>
     </section>
 
@@ -227,11 +268,6 @@
                 <p>Patient health data and behavioral logs never leave the physical phone. By eliminating cloud servers entirely, we remove third-party data liability for your clinic.</p>
             </div>
         </div>
-    </section>
-
-    <section class="pledge">
-        <h2>The 10% Profit Pledge</h2>
-        <p>We are stakeholders in patient success, not just a software vendor. JIT Biobehavioral is legally structured with an Irrevocable Profit Allocation Mandate. We pledge a minimum of 10% of our net annual profit directly back into the addiction recovery ecosystem as grants, software subsidies, and direct funding to publicly funded IOPs.</p>
     </section>
 
     <footer>
