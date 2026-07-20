@@ -79,7 +79,7 @@
             opacity: 0.9;
         }
 
-        /* Mission Statement - Expanded */
+        /* Mission Statement */
         .mission {
             background: var(--bg-light);
             padding: 80px 5%;
@@ -191,7 +191,7 @@
             margin-top: 0;
         }
         
-        /* App Demo Section */
+        /* Interactive App Demo Section */
         .demo {
             background: var(--primary-dark);
             padding: 80px 5%;
@@ -259,6 +259,12 @@
             font-size: 0.8rem;
             font-weight: bold;
             margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .status-badge.locked {
+            background: #ffebee;
+            color: var(--danger);
         }
 
         .demo-card {
@@ -268,6 +274,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             margin-bottom: 15px;
             border-left: 4px solid var(--primary);
+            transition: 0.3s;
         }
 
         .demo-card.alert {
@@ -282,9 +289,39 @@
         
         .demo-card p {
             margin: 0;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
             color: #222;
+        }
+
+        .demo-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .demo-btn:hover {
+            background: #d8694d;
+        }
+
+        .reset-btn {
+            width: 100%;
+            padding: 10px;
+            background: #ddd;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin-top: 10px;
         }
 
         /* Footer */
@@ -370,28 +407,26 @@
 
     <section class="demo">
         <h2>See The Shield in Action</h2>
-        <p>A transparent look at the local-only dashboard your outpatients will carry.</p>
+        <p>Interact with the live simulation below to see how Cortex-Zero autonomously intercepts high-risk behavior.</p>
         
         <div class="phone-mockup">
             <div class="phone-screen">
                 <div class="app-header">Cortex-Zero</div>
                 <div class="app-body">
-                    <div class="status-badge">⬤ Shield Active</div>
+                    <div id="shield-status" class="status-badge">⬤ Shield Active</div>
                     
-                    <div class="demo-card">
+                    <div id="guardian-card" class="demo-card">
                         <h4>Guardian Status</h4>
-                        <p>Monitoring Keyboard</p>
+                        <p id="guardian-text">Monitoring Keyboard</p>
                     </div>
 
-                    <div class="demo-card alert">
+                    <div id="threat-card" class="demo-card">
                         <h4>Threat Cache</h4>
-                        <p style="color: #c62828;">1 High-Risk Number Tagged</p>
+                        <p id="threat-text">0 Threats Detected</p>
                     </div>
                     
-                    <div class="demo-card">
-                        <h4>Zero-Cloud Export</h4>
-                        <p>Awaiting Doctor PIN</p>
-                    </div>
+                    <button class="demo-btn" onclick="triggerThreat()">Simulate Burner Text</button>
+                    <button class="reset-btn" onclick="resetDemo()">Reset Dashboard</button>
                 </div>
             </div>
         </div>
@@ -401,6 +436,31 @@
         <p>&copy; 2026 JIT Biobehavioral Inc. All rights reserved.</p>
         <p>Secure B2B Clinical Software | Zero-Cloud Architecture</p>
     </footer>
+
+    <!-- Interactive Demo Logic -->
+    <script>
+        function triggerThreat() {
+            document.getElementById('shield-status').className = 'status-badge locked';
+            document.getElementById('shield-status').innerText = '⬤ Threat Neutralized';
+
+            document.getElementById('threat-card').classList.add('alert');
+            document.getElementById('threat-text').innerHTML = '<span style="color: #c62828;">1 High-Risk Number Tagged</span>';
+            
+            document.getElementById('guardian-card').classList.add('alert');
+            document.getElementById('guardian-text').innerHTML = '<span style="color: #c62828;">Keyboard Locked - Intervention Triggered</span>';
+        }
+
+        function resetDemo() {
+            document.getElementById('shield-status').className = 'status-badge';
+            document.getElementById('shield-status').innerText = '⬤ Shield Active';
+
+            document.getElementById('threat-card').classList.remove('alert');
+            document.getElementById('threat-text').innerText = '0 Threats Detected';
+            
+            document.getElementById('guardian-card').classList.remove('alert');
+            document.getElementById('guardian-text').innerText = 'Monitoring Keyboard';
+        }
+    </script>
 
 </body>
 </html>
