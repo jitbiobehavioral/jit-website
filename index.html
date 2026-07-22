@@ -378,6 +378,658 @@
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             header {
+                position: relative !important; /* Force relative to prevent overlapping */
+                flex-direction: column !important;
+                gap: 24px !important;
+                padding: 40px 5% !important;
+                text-align: center;
+                box-shadow: none;
+            }
+
+            .logo {
+                justify-content: center;
+                font-size: 20px;
+            }
+
+            .btn-nav {
+                width: 100%;
+                display: block;
+                box-sizing: border-box;
+                font-size: 1rem;
+                padding: 18px;
+                margin: 0;
+            }
+
+            .hero {
+                padding: 40px 8% 80px 8%;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+
+            .enrollment-box {
+                width: 100%;
+                padding: 24px;
+                box-sizing: border-box;
+                margin-top: 0;
+                margin-bottom: 40px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+                margin-top: 40px;
+            }
+
+            .footer-logo {
+                flex-direction: column;
+                gap: 15px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <svg width="40" height="40" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                <!-- Vanguard Shield Base -->
+                <path d="M 54 4 L 98 15 C 98 45 88 85 54 104 C 20 85 10 45 10 15 Z" fill="#0f172a" stroke="#0e7490" stroke-width="4"/>
+
+                <!-- Inner Neural Folds (The Cortex) -->
+                <path d="M 54 24 C 35 24, 25 40, 25 54 C 25 68, 35 84, 54 84" fill="none" stroke="#e2e8f0" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+                <path d="M 54 24 C 73 24, 83 40, 83 54 C 83 68, 73 84, 54 84" fill="none" stroke="#e2e8f0" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+
+                <!-- Synaptic Web -->
+                <path d="M 40 40 L 68 68 M 68 40 L 40 68 M 36 54 L 72 54 M 54 34 L 54 74" fill="none" stroke="#22d3ee" stroke-width="1.5" stroke-opacity="0.6"/>
+
+                <!-- Pulsing Nodes -->
+                <circle cx="40" cy="40" r="5" fill="#0ea5e9" fill-opacity="0.3" class="node-glow"/>
+                <circle cx="68" cy="40" r="5" fill="#0ea5e9" fill-opacity="0.3" class="node-glow"/>
+                <circle cx="40" cy="68" r="5" fill="#0ea5e9" fill-opacity="0.3" class="node-glow"/>
+                <circle cx="68" cy="68" r="5" fill="#0ea5e9" fill-opacity="0.3" class="node-glow"/>
+
+                <circle cx="40" cy="40" r="2" fill="#22d3ee"/>
+                <circle cx="68" cy="40" r="2" fill="#22d3ee"/>
+                <circle cx="40" cy="68" r="2" fill="#22d3ee"/>
+                <circle cx="68" cy="68" r="2" fill="#22d3ee"/>
+
+                <!-- Central Core Lock -->
+                <circle cx="54" cy="54" r="8" fill="#ffffff" fill-opacity="0.2"/>
+                <circle cx="54" cy="54" r="5" fill="#ffffff"/>
+            </svg>
+            JIT CORTEX-ZERO
+        </div>
+        <nav>
+            <a href="mailto:gerald@jitbiobehavioralinc.com?subject=Pilot Access Request - JIT Cortex-Zero" class="btn-nav">REQUEST PILOT ACCESS</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Autonomous Interception.<br>Zero Latency.</h1>
+        <p>The world’s first clinical-grade behavioral shield that neutralizes relapse triggers at machine speed—before the patient can engage.</p>
+
+        <div class="enrollment-box">
+            <h4>JOIN THE 30-DAY PILOT STUDY</h4>
+            <a href="mailto:gerald@jitbiobehavioralinc.com?subject=30-Day Beta Access Request - Cortex-Zero" class="btn-nav" style="padding: 16px 40px; font-size: 1.2rem;">DOWNLOAD BETA (.APK)</a>
+            <p class="enrollment-timer" style="margin-top: 12px;">⏳ ENROLLMENT WINDOW CLOSING SOON</p>
+        </div>
+
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-val">0ms</span>
+                <span class="stat-label">Interaction Latency</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-val">100%</span>
+                <span class="stat-label">On-Device AI</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-val">PIPA</span>
+                <span class="stat-label">Federal Compliance</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="compliance">
+        <div class="comp-badge">🛡️ BC PIPA COMPLIANT</div>
+        <div class="comp-badge">🔐 PIPEDA READY</div>
+        <div class="comp-badge">📱 SAMSUNG KNOX INTEGRATED</div>
+        <div class="comp-badge">🧠 GEMINI NANO CORE</div>
+    </div>
+
+    <section class="features">
+        <div class="features-header">
+            <h2>Engineering the End of the "Relapse Window"</h2>
+            <p>Traditional recovery apps rely on self-report. We rely on autonomous physics.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>🔍 Recursive Scavenging</h3>
+                <p>Proprietary algorithms that deep-scan system metadata across WhatsApp, RCS, and Snapchat to identify high-risk actors hidden by app-level obfuscation.</p>
+            </div>
+            <div class="card">
+                <h3>🦅 Surgical Lockdown</h3>
+                <p>Advanced state-tracking that neutralizes dangerous conversations while leaving safe ones open. Uses heuristic "UI Noise Filtering" to remain stable during system transitions.</p>
+            </div>
+            <div class="card">
+                <h3>⚡ Pre-emptive Hijacking</h3>
+                <p>The system intercepts at the "Focus" event. By neutralizing the UI the millisecond an input field is tapped, we provide a zero-tolerance defense faster than human reaction time.</p>
+            </div>
+            <div class="card">
+                <h3>🧠 100% Zero-Cloud AI</h3>
+                <p>Utilizing <strong>Gemini Nano</strong>, the AI Clinical Coach runs entirely on the device chip. No user thoughts, speech, or triggers ever leave the physical hardware.</p>
+            </div>
+            <div class="card">
+                <h3>📍 Crisis Pinning</h3>
+                <p>Autonomous location capture and 911 pre-arming during extreme crises, providing clinicians with high-fidelity telemetry for Intensive Outpatient Programs (IOPs).</p>
+            </div>
+            <div class="card">
+                <h3>📦 Enterprise Provisioning</h3>
+                <p>Built for Strategy 1 deployment. Compatible with MDM and ADB provisioning docks for "Zero-Touch" facility setups.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="demo">
+        <h2>Experience The Handshake</h2>
+        <p>Interact with the Cortex-Zero core logic. See how the Shield differentiates between growth and crisis.</p>
+
+        <div class="phone-mockup">
+            <div class="phone-screen">
+
+                <!-- Standard Hijack Overlay -->
+                <div id="hijack-screen" class="overlay">
+                    <h2 style="font-size: 2.2rem;">⚠️ VANGUARD INTERCEPT</h2>
+                    <p><strong>High-Risk Engagement Detected</strong></p>
+                    <p>Device locked for clinical grounding. Distress tolerance protocol initialized.</p>
+                    <button class="btn-action" onclick="resetDemo()">ACKNOWLEDGE & RESET</button>
+                </div>
+
+                <!-- Extreme Crisis (Tier 0) Overlay -->
+                <div id="crisis-screen" class="overlay">
+                    <h2 style="font-size: 2.2rem; color: #ff4444;">CRITICAL ALERT</h2>
+                    <p><strong>EXTREME CRISIS DETECTED</strong></p>
+                    <p>911 Dialer has been pre-armed. Emergency contacts notified with live map link.</p>
+                    <button class="btn-action btn-911" onclick="alert('System: Pre-arming 911 Dialer...')">🚨 CALL 911 NOW</button>
+                    <button class="btn-action" style="background:transparent; border: 1px solid #555; color:#aaa;" onclick="resetDemo()">DISMISS (I AM SAFE)</button>
+                </div>
+
+                <!-- Victory Vault Overlay -->
+                <div id="victory-screen" class="overlay">
+                    <h2 style="font-size: 2.2rem;">🏆 VICTORY VAULT</h2>
+                    <p><strong>Growth Milestone Logged</strong></p>
+                    <p>Resilience streak extended. Small wins build lasting recovery.</p>
+                    <button class="btn-action" onclick="resetDemo()">CELEBRATE & CONTINUE</button>
+                </div>
+
+                <div class="app-header">CORTEX-ZERO</div>
+
+                <div class="app-body">
+                    <div class="journal-box">
+                        <textarea id="journalInput" class="journal-input" placeholder="How is your recovery today?" onkeyup="analyzeInput()"></textarea>
+                    </div>
+
+                    <div class="demo-hint">
+                        <strong>TEST COMMANDS:</strong><br>
+                        • Type <strong>"relapse"</strong> for Standard Hijack<br>
+                        • Type <strong>"die"</strong> for Extreme Crisis (911)<br>
+                        • Type <strong>"sober"</strong> for Victory Vault
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">
+            <svg width="80" height="80" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                <rect width="108" height="108" fill="#0f172a" rx="12"/>
+                <circle cx="54" cy="54" r="48" fill="#1e293b"/>
+                <circle cx="54" cy="54" r="46" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-opacity="0.7"/>
+                <circle cx="54" cy="54" r="40" fill="none" stroke="#0e7490" class="shield-ring"/>
+                <circle cx="54" cy="54" r="35" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-opacity="0.8"/>
+                <path d="M 54 24 C 35 24, 25 40, 25 54 C 25 68, 35 84, 54 84" fill="none" stroke="#e2e8f0" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M 54 24 C 73 24, 83 40, 83 54 C 83 68, 73 84, 54 84" fill="none" stroke="#e2e8f0" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M 54 34 C 42 34, 36 45, 36 54 C 36 63, 42 74, 54 74 M 54 34 C 66 34, 72 45, 72 54 C 72 63, 66 74, 54 74" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+                <path d="M 40 40 L 68 68 M 68 40 L 40 68 M 36 54 L 72 54 M 54 34 L 54 74" fill="none" stroke="#22d3ee" stroke-width="1.5" stroke-opacity="0.6"/>
+                <circle cx="40" cy="40" r="5" fill="#0ea5e9" fill-opacity="0.3" class="node-glow"/>
+                <circle cx="68" cy="40" r="5" fill="#0ea5e9" fill-opacity="0.3" class="node-glow"/>
+                <circle cx="40" cy="68" r="5" fill="#0ea5e9" fill-opacity="0.3" class="node-glow"/>
+                <circle cx="68" cy="68" r="5" fill="#0ea5e9" fill-opacity="0.3" class="node-glow"/>
+                <circle cx="40" cy="40" r="2.5" fill="#22d3ee"/>
+                <circle cx="68" cy="40" r="2.5" fill="#22d3ee"/>
+                <circle cx="40" cy="68" r="2.5" fill="#22d3ee"/>
+                <circle cx="68" cy="68" r="2.5" fill="#22d3ee"/>
+                <circle cx="54" cy="54" r="10" fill="#ffffff" fill-opacity="0.25"/>
+                <circle cx="54" cy="54" r="6" fill="#ffffff"/>
+                <circle cx="54" cy="54" r="2" fill="#0f172a"/>
+            </svg>
+            JIT BIOBEHAVIORAL
+        </div>
+        <p>Engineered for the hardest moments of recovery.</p>
+        <p style="margin-top:40px; font-size: 0.8rem;">&copy; 2026 JIT Biobehavioral Inc. All rights reserved.<br>Privacy Officer: Gerry Humphrey | privacy@jitbehavioral.com</p>
+    </footer>
+
+    <script>
+        function analyzeInput() {
+            const val = document.getElementById('journalInput').value.toLowerCase();
+
+            // Tier 0: Extreme Crisis
+            if (val.includes('die') || val.includes('suicide') || val.includes('kill')) {
+                document.getElementById('crisis-screen').style.display = 'flex';
+                return;
+            }
+
+            // Tier 1: Standard Risk
+            if (val.includes('relapse') || val.includes('craving') || val.includes('hit')) {
+                document.getElementById('hijack-screen').style.display = 'flex';
+                return;
+            }
+
+            // Tier 2: Victory
+            if (val.includes('sober') || val.includes('clean') || val.includes('milestone')) {
+                document.getElementById('victory-screen').style.display = 'flex';
+                return;
+            }
+        }
+
+        function resetDemo() {
+            document.getElementById('hijack-screen').style.display = 'none';
+            document.getElementById('crisis-screen').style.display = 'none';
+            document.getElementById('victory-screen').style.display = 'none';
+            document.getElementById('journalInput').value = '';
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<!-- Copyright (c) 2026 JIT Biobehavioral Inc. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JIT Cortex-Zero | Autonomous Relapse Interception</title>
+    <style>
+        :root {
+            --primary: #0F172A;
+            --primary-light: #1E293B;
+            --sky-blue: #38BDF8;
+            --accent: #0EA5E9;
+            --bg-light: #F8FAFC;
+            --text-dark: #0F172A;
+            --text-muted: #64748B;
+            --success: #10B981;
+            --danger: #EF4444;
+            --crisis: #000000;
+        }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+        }
+
+        /* Navigation */
+        header {
+            background: #fff;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-svg {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 40px;
+            color: #fff;
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .footer-logo .logo-svg {
+            width: 100px;
+            height: 100px;
+        }
+
+        .node-glow {
+            animation: pulseGlow 2s infinite ease-in-out;
+            transform-origin: center;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { fill-opacity: 0.2; transform: scale(1); }
+            50% { fill-opacity: 0.6; transform: scale(1.3); }
+        }
+
+        .shield-ring {
+            stroke-width: 10;
+            filter: drop-shadow(0 0 8px #0ea5e9);
+        }
+
+        .enrollment-box {
+            background: #E0F2FE;
+            padding: 32px;
+            border-radius: 20px;
+            margin-top: 40px;
+            border: 2px dashed #0EA5E9;
+            display: inline-block;
+        }
+
+        .enrollment-box h4 {
+            margin: 0 0 10px 0;
+            color: #0369A1;
+            font-size: 1.4rem;
+        }
+
+        .enrollment-timer {
+            color: #EF4444;
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-nav {
+            background: var(--accent);
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-nav:hover {
+            background: #0284C7;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff;
+            padding: 120px 8%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.05;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            color: var(--sky-blue);
+            font-weight: 400;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-val {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--sky-blue);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 8%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .features-header h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #E2E8F0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+            border-color: var(--sky-blue);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Compliance Row */
+        .compliance {
+            background: #fff;
+            padding: 40px 8%;
+            border-top: 1px solid #E2E8F0;
+            border-bottom: 1px solid #E2E8F0;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            filter: grayscale(1);
+            opacity: 0.6;
+        }
+
+        .comp-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Interactive App Demo */
+        .demo {
+            background: var(--primary);
+            padding: 120px 8%;
+            text-align: center;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .demo h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .phone-mockup {
+            width: 340px;
+            height: 700px;
+            background: #111;
+            border-radius: 45px;
+            padding: 16px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+            position: relative;
+            border: 4px solid #333;
+        }
+
+        .phone-screen {
+            background: #fff;
+            width: 100%;
+            height: 100%;
+            border-radius: 32px;
+            overflow: hidden;
+            text-align: left;
+            color: #0F172A;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Overlays */
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 100;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 32px;
+            box-sizing: border-box;
+        }
+
+        #hijack-screen { background: var(--danger); color: #fff; animation: flashRed 0.3s ease; }
+        #crisis-screen { background: var(--crisis); color: #fff; border: 8px solid var(--danger); animation: pulseCrisis 1.5s infinite alternate; }
+        #victory-screen { background: var(--success); color: #fff; animation: popIn 0.5s ease; }
+
+        @keyframes flashRed { 0% { background: #fff; } 100% { background: var(--danger); } }
+        @keyframes pulseCrisis { 0% { box-shadow: inset 0 0 20px var(--danger); } 100% { box-shadow: inset 0 0 80px var(--danger); background: #1a0000; } }
+        @keyframes popIn { 0% { transform: scale(0.9); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+        .btn-action {
+            background: #fff;
+            color: var(--primary);
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 24px;
+            width: 100%;
+        }
+
+        .btn-911 { background: var(--danger); color: #fff; font-size: 1.5rem; margin-top: 40px; }
+
+        .app-header {
+            background: var(--primary);
+            color: #fff;
+            padding: 40px 24px 20px 24px;
+            font-weight: 800;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        .app-body { padding: 24px; flex-grow: 1; background: #fff; }
+
+        .journal-box {
+            background: #F1F5F9;
+            padding: 20px;
+            border-radius: 16px;
+        }
+
+        textarea.journal-input {
+            width: 100%;
+            height: 180px;
+            background: transparent;
+            border: none;
+            font-family: inherit;
+            resize: none;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        textarea.journal-input:focus { outline: none; }
+
+        .demo-hint {
+            margin-top: 24px;
+            background: #E0F2FE;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            color: #0369A1;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: #94A3B8;
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .footer-logo { font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 20px; }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header {
                 position: relative; /* Remove sticky on mobile to prevent overlaying hero content */
                 flex-direction: column;
                 gap: 20px;
