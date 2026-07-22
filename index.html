@@ -374,6 +374,60 @@
         }
 
         .footer-logo { font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 20px; }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header {
+                position: relative; /* Remove sticky on mobile to prevent overlaying hero content */
+                flex-direction: column;
+                gap: 20px;
+                padding: 24px 5%;
+                text-align: center;
+            }
+
+            .logo {
+                justify-content: center;
+            }
+
+            .btn-nav {
+                width: 100%;
+                display: block;
+                box-sizing: border-box;
+                font-size: 1rem;
+                padding: 14px;
+                margin-top: 10px;
+            }
+
+            .hero {
+                padding: 60px 8%;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .enrollment-box {
+                width: 100%;
+                padding: 24px;
+                box-sizing: border-box;
+                margin-top: 30px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+                margin-top: 40px;
+            }
+            
+            .footer-logo {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
     </style>
 </head>
 <body>
