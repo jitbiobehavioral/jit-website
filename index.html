@@ -14,6 +14,512 @@
             --text-muted: #666;
             --success: #2e7d32;
             --danger: #c62828;
+            --crisis: #000000;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background: #fff;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .btn-nav {
+            background: var(--primary);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-nav:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            opacity: 0.9;
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .features-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #eaeaea;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-top: 0;
+        }
+        
+        /* Interactive App Demo Section */
+        .demo {
+            background: var(--primary-dark);
+            padding: 80px 5%;
+            text-align: center;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .demo h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .demo p {
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+            opacity: 0.9;
+        }
+
+        .phone-mockup {
+            width: 320px;
+            height: 650px;
+            background: #000;
+            border-radius: 35px;
+            padding: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        .phone-screen {
+            background: #f4f7f6;
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+            overflow: hidden;
+            text-align: left;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .app-header {
+            background: var(--primary);
+            color: #fff;
+            padding: 25px 20px 15px 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .app-body {
+            padding: 20px;
+            flex-grow: 1;
+            position: relative;
+            background: #fff;
+        }
+
+        /* Tier 1: Standard Hijack Overlay */
+        .hijack-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--danger);
+            color: #fff;
+            z-index: 50;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            animation: flashRed 0.3s ease-in-out;
+        }
+
+        @keyframes flashRed {
+            0% { background: #fff; }
+            100% { background: var(--danger); }
+        }
+
+        .btn-reset-hijack {
+            background: #fff;
+            color: var(--danger);
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        /* Tier 2: Extreme Crisis Overlay */
+        .crisis-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--crisis);
+            color: #fff;
+            z-index: 60;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 25px;
+            box-sizing: border-box;
+            border: 5px solid var(--danger);
+            animation: pulseCrisis 1.5s infinite alternate;
+        }
+
+        @keyframes pulseCrisis {
+            0% { box-shadow: inset 0 0 15px var(--danger); }
+            100% { box-shadow: inset 0 0 50px var(--danger); background: #1a0000; }
+        }
+
+        .crisis-overlay h2 { margin-top: 0; font-size: 1.8rem; color: #ff4444; }
+        .crisis-overlay p { font-size: 1rem; margin-bottom: 25px; opacity: 0.9; }
+
+        .btn-911 {
+            background: var(--danger);
+            color: #fff;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .btn-lifeline {
+            background: #0056b3;
+            color: #fff;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .btn-dismiss-crisis {
+            background: transparent;
+            color: #aaa;
+            border: 1px solid #555;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        /* Victory Overlay */
+        .victory-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--success);
+            color: #fff;
+            z-index: 50;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .btn-reset-victory {
+            background: #fff;
+            color: var(--success);
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .demo-view { display: none; }
+        .demo-view.active { display: block; }
+        .demo-view h4 { margin: 0 0 10px 0; color: var(--primary); }
+        .helper-text { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; }
+
+        textarea.journal-input {
+            width: 90%;
+            height: 120px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            resize: none;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        textarea.journal-input:focus { outline: none; border-color: var(--primary); }
+
+        .demo-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Alerts */
+        .alert-box {
+            background: #ffebee;
+            color: var(--danger);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--danger);
+            font-size: 0.9rem;
+            margin-top: 15px;
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .alert-box.success { background: #e8f5e9; color: var(--success); border-left: 4px solid var(--success); }
+        .alert-box.crisis { background: #000; color: #ff4444; border-left: 4px solid #ff4444; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Bottom Nav */
+        .bottom-nav { display: flex; background: #fff; border-top: 1px solid #ddd; }
+        .nav-item { flex: 1; text-align: center; padding: 15px 0; font-size: 0.9rem; font-weight: bold; color: var(--text-muted); cursor: pointer; }
+        .nav-item.active { color: var(--primary); border-top: 3px solid var(--primary); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">JIT Biobehavioral</div>
+        <a href="/pilot" class="btn-nav">Clinic Login</a>
+    </header>
+
+    <section class="hero">
+        <h1>Closing the Outpatient Blind Spot.</h1>
+        <p>Cortex-Zero autonomously intercepts behavioral crises, self-harm ideation, and generates objective telemetry for Intensive Outpatient Programs.</p>
+    </section>
+
+    <!-- Interactive App Demo Section -->
+    <section class="demo">
+        <h2>See The Shield in Action</h2>
+        <p>Interact with the live multi-tiered simulation below. Watch how the system differentiates between positive milestones, standard relapse risks, and extreme crises.</p>
+        
+        <div class="phone-mockup">
+            <div class="phone-screen">
+                
+                <!-- Tier 1: Standard Hijack -->
+                <div id="hijack-screen" class="hijack-overlay">
+                    <h2 style="margin:0; font-size: 2rem;">⚠️ SHIELD ACTIVATED</h2>
+                    <p><strong>High-Risk Lexicon Detected</strong></p>
+                    <p style="font-size: 0.9rem;">Device input locked. Intervention protocol initiated.</p>
+                    <button class="btn-reset-hijack" onclick="resetAllOverlays()">Acknowledge & Reset</button>
+                </div>
+
+                <!-- Tier 2: Extreme Crisis (911) -->
+                <div id="crisis-screen" class="crisis-overlay">
+                    <h2>CRITICAL ALERT</h2>
+                    <p><strong>Extreme Ideation Detected</strong><br>You are not alone. Support is available immediately. Your emergency contacts have been notified.</p>
+                    <button class="btn-911" onclick="alert('Launching native emergency dialer...')">🚨 DIAL 911</button>
+                    <button class="btn-lifeline" onclick="alert('Connecting to Crisis Lifeline...')">Dial 988 Lifeline</button>
+                    <button class="btn-dismiss-crisis" onclick="resetAllOverlays()">I am safe (Dismiss)</button>
+                </div>
+
+                <!-- Victory Vault -->
+                <div id="victory-screen" class="victory-overlay">
+                    <h2 style="margin:0; font-size: 2rem;">🏆 VICTORY VAULT</h2>
+                    <p><strong>Milestone Detected</strong></p>
+                    <p style="font-size: 0.9rem;">Your progress has been securely logged. Keep up the great work!</p>
+                    <button class="btn-reset-victory" onclick="resetAllOverlays()">Celebrate & Continue</button>
+                </div>
+
+                <div class="app-header">Cortex-Zero</div>
+                
+                <div class="app-body">
+                    <!-- Journal Tab -->
+                    <div id="tab-journal" class="demo-view active">
+                        <h4>Multi-Tiered Lexicon Scanner</h4>
+                        <p class="helper-text">
+                            Try <strong>"craving"</strong> for standard risk.<br>
+                            Try <strong>"harm"</strong> or <strong>"die"</strong> for extreme crisis.<br>
+                            Try <strong>"sober"</strong> for a victory milestone.
+                        </p>
+                        <textarea id="journalInput" class="journal-input" placeholder="How are you feeling today?" onkeyup="checkJournal()"></textarea>
+                        <div id="journalAlert" class="alert-box"></div>
+                    </div>
+                </div>
+
+                <div class="bottom-nav">
+                    <div id="nav-journal" class="nav-item active">Journal Analysis</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function checkJournal() {
+            const input = document.getElementById('journalInput').value.toLowerCase();
+            
+            // Multi-Tiered Lexicons
+            const crisisTriggers = ['suicide', 'die', 'kill', 'end it', 'harm', 'hopeless'];
+            const riskTriggers = ['craving', 'drink', 'bar', 'score', 'using', 'relapse'];
+            const victoryTriggers = ['milestone', 'sober', 'proud', 'clean', 'win'];
+            
+            const isCrisis = crisisTriggers.some(word => input.includes(word));
+            const isRisk = riskTriggers.some(word => input.includes(word));
+            const isVictory = victoryTriggers.some(word => input.includes(word));
+            
+            const alertBox = document.getElementById('journalAlert');
+            const textArea = document.getElementById('journalInput');
+
+            if (isCrisis) {
+                alertBox.style.display = 'block';
+                alertBox.className = 'alert-box crisis';
+                alertBox.innerHTML = '🚨 <strong>EXTREME CRISIS!</strong><br>Self-harm ideation detected. 911 Pre-arming initiated.';
+                textArea.style.borderColor = '#000';
+                textArea.style.backgroundColor = '#ffebee';
+                document.getElementById('crisis-screen').style.display = 'flex';
+                textArea.blur();
+                
+            } else if (isRisk) {
+                alertBox.style.display = 'block';
+                alertBox.className = 'alert-box';
+                alertBox.innerHTML = '⚠️ <strong>Guardian Intervention!</strong><br>High-risk lexicon detected. Keyboard locked.';
+                textArea.style.borderColor = '#c62828';
+                textArea.style.backgroundColor = '#ffebee';
+                document.getElementById('hijack-screen').style.display = 'flex';
+                textArea.blur(); 
+                
+            } else if (isVictory) {
+                alertBox.style.display = 'block';
+                alertBox.className = 'alert-box success';
+                alertBox.innerHTML = '🏆 <strong>Victory Vault!</strong><br>Milestone logged and celebrated!';
+                textArea.style.borderColor = '#2e7d32';
+                textArea.style.backgroundColor = '#e8f5e9';
+                document.getElementById('victory-screen').style.display = 'flex';
+                textArea.blur(); 
+                
+            } else {
+                alertBox.style.display = 'none';
+                textArea.style.borderColor = '#ddd';
+                textArea.style.backgroundColor = '#fff';
+            }
+        }
+
+        function resetAllOverlays() {
+            document.getElementById('hijack-screen').style.display = 'none';
+            document.getElementById('crisis-screen').style.display = 'none';
+            document.getElementById('victory-screen').style.display = 'none';
+            
+            const textArea = document.getElementById('journalInput');
+            textArea.value = '';
+            textArea.style.backgroundColor = '#fff';
+            textArea.style.borderColor = '#ddd';
+            document.getElementById('journalAlert').style.display = 'none';
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JIT Biobehavioral | Autonomous Clinical Shields</title>
+    <style>
+        :root {
+            --primary: #1a5f7a;
+            --primary-dark: #114052;
+            --accent: #e27d60;
+            --bg-light: #f4f7f6;
+            --text-dark: #333;
+            --text-muted: #666;
+            --success: #2e7d32;
+            --danger: #c62828;
         }
         
         body {
